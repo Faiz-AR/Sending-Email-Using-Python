@@ -2,6 +2,9 @@ import smtplib
 import getpass
 
 def emailLogin():
+    """
+    Login to your gmail account using the app password
+    """
     smtp_object = smtplib.SMTP('smtp.gmail.com', 587)
     smtp_object.ehlo()
     smtp_object.starttls()
@@ -11,6 +14,9 @@ def emailLogin():
     return smtp_object, email
 
 def sendEmail(smtp_object,email):
+    """
+    Send email to a targeted recipient 
+    """
     to_address = getpass.getpass("Enter the email of the recipient: ")
     subject = input("Enter the subject line: ")
     message = input("Type out the message you want to send: ")
@@ -23,4 +29,5 @@ def main():
     obj, user_email = emailLogin()
     sendEmail(obj,user_email)
 
-main()
+if __name__ = '__main__':
+    main()
